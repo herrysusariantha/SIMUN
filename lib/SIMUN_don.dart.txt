@@ -1,0 +1,83 @@
+
+import 'package:flutter/material.dart';
+import 'dart:math';
+
+
+class BMIResult extends StatelessWidget {
+
+  BMIResult({@required this.luas_tanah, @required this.jarak_bibit, @required this.harga_satuan});
+  final int tinggi_badan;
+  final int berat_badan;
+  final int harga_satuan;
+
+  @override
+  Widget build(BuildContext context) {
+    double SIMUN = (jarak_bibit / (jarak_bibit x jarak_bibit)) * harga satuan;
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('RESULT'),
+      ),
+      body: Container(
+      alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              cSIMUN,
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.w500,
+                color: Colors.green,
+              ),
+            ),
+            Text(
+              SIMUN.toStringAsFixed(2),
+              style: TextStyle(
+                fontSize: 100,
+                fontWeight: FontWeight.w800,
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              'Normal SIMUN Range',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+                color: Colors.white60,
+              ),
+            ),
+            Text(
+              '17,5 -  22.9 ',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w800,
+                color: Colors.white,
+              ),
+            ),
+
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        width: double.infinity,
+        height: 80,
+        child: RaisedButton(
+
+          color: Colors.black54,
+          child: Text('BACK',
+            style: TextStyle(
+              fontSize: 30
+            ),
+
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+
+    );
+  }
+}

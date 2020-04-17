@@ -1,0 +1,5 @@
+Rumus
+SIMUN = (jarak bibit(m2) / (jarak bibit(m) x jarak bibit(m))) x harga satua(Rp)
+tampilan
+-harga total
+-jumlah pohon

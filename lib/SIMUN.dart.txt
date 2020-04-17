@@ -1,0 +1,155 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'SIMUN_don.dart';
+
+class InputBMI extends StatefulWidget {
+  @override
+  _InputSIMUNState createState() => _InputSIMUNState();
+}
+
+class _InputSIMUNState extends State<InputSIMUN> {
+  int luas = 0;
+  int jarak = 0;
+  int harga = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return
+        Scaffold(
+            //backgroundColor: Colors.blue[50],
+            appBar: AppBar(
+              //backgroundColor: Colors.blue[900],
+              centerTitle: true,
+              leading: Icon(
+                Icons.favorite,
+                color: Colors.pink,
+              ),
+              title: Text('SIMUN'),
+            ),
+            body: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    child:
+                    Image.asset('images/treejpg',
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ),
+
+                  Container(
+                       margin: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.all(10),
+                     // color: Colors.blue[700],
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: TextField(
+                              onChanged: (txt) {
+                                setState(() {
+                                  luas = int.parse(txt);
+                                });
+                              },
+                              keyboardType: TextInputType.number,
+                              maxLength: 3,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                              decoration: InputDecoration(
+                                  suffix: Text('M2'),
+
+                                  filled: true,
+                                  hintText: 'luas'),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: TextField(
+                              onChanged: (txt) {
+                                setState(() {
+                                  jarak = int.parse(txt);
+                                });
+                              },
+                              keyboardType: TextInputType.number,
+                              maxLength: 3,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                              decoration: InputDecoration(
+                                  suffix: Text('M'),
+                                  filled: true,
+                                  hintText: 'Berat'),
+                            ),
+				SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: TextField(
+                              onChanged: (txt) {
+                                setState(() {
+                                  harga = int.parse(txt);
+                                });
+                              },
+                              keyboardType: TextInputType.number,
+                              maxLength: 3,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                              decoration: InputDecoration(
+                                  suffix: Text('Rp'),
+                                  filled: true,
+                                  hintText: 'harga')
+                          ),
+                        ],
+                      )),
+
+                  Container(
+                   //height: double.infinity,
+                     margin: EdgeInsets.only(left: 10,right: 10,bottom: 20),
+                     child: RaisedButton(
+                       onPressed: () {
+                         Navigator.push(
+                           context,
+                           MaterialPageRoute(builder: (context) => SIPON_don(luas_tanah:luas, jarak_bibit: jarak, harga_satuan: harga)),
+                         );
+                       },
+                       padding: EdgeInsets.only(top: 10, bottom: 10),
+                       color: Colors.black,
+                       // textColor: Colors.white,
+                       child: Text(
+                         'HITUNG SIMUN',
+                         style:
+                         TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                       ),
+                     ),
+                   ),
+
+
+
+                ],
+              ),
+            ),
+          bottomNavigationBar: BottomAppBar(
+            //color: Colors.transparent,
+            child: Container(
+              height: 60,
+              color: Colors.black54,
+              alignment: Alignment.center,
+              child: Text(
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+              ),
+            ),
+            //elevation: 0,
+          ),
+        );
+  }
+}
